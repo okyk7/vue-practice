@@ -14,15 +14,15 @@
     </div>
     <div id="app2" class="container">
         <h1>my todos</h1>
-        <ul>
-            <li>{{ todos[0].title }}</li>
-            <li>{{ todos[1].title }}</li>
-            <li>{{ todos[2].title }}</li>
-            <li>以下for利用</li>
+        <ul v-if="todos.length">
             <li v-for="(todo, index) in todos">
-                {{ todo.title }}
-                <span @click="deleteItem(index)" class="command">[x]</span>
+                <input type="checkbox" v-model="todo.isDone" />
+                <span v-bind:class="{done: todo.isDone}">{{ todo.title }}</span>
+                <span v-on:click="deleteItem(index)" class="command">[x]</span>
             </li>
+        </ul>
+        <ul v-else>
+            <li>nothing to do</li>
         </ul>
         <form @submit.prevent="addItem">
             <input type="text" v-model="newItem" />
