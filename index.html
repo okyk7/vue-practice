@@ -21,8 +21,7 @@
             <li>以下for利用</li>
             <li v-for="todo in todos">{{ todo }}</li>
         </ul>
-        <!-- <form v-on:submit="addItem"> -->
-        <form @submit.prevent="addItem">
+        <form @submit.prevent=addItem>
             <input type="text" v-model="newItem" />
             <input type="submit" value="Add" />
         </form>
