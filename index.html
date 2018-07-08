@@ -14,7 +14,8 @@
     </div>
     <div id="app2" class="container">
         <h1>my todos</h1>
-        <span class="info">({{ remaining }}/{{ todos.length }})</span>
+        <button v-on:click="purge">purge</button>
+        <span class="info">({{ remaining.length }}/{{ todos.length }})</span>
         <ul v-if="todos.length">
             <li v-for="(todo, index) in todos">
                 <input type="checkbox" v-model="todo.isDone" />
