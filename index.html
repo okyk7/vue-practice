@@ -15,13 +15,16 @@
     <div id="app2" class="container">
         <h1>my todos</h1>
         <ul>
-            <li>{{ todos[0] }}</li>
-            <li>{{ todos[1] }}</li>
-            <li>{{ todos[2] }}</li>
+            <li>{{ todos[0].title }}</li>
+            <li>{{ todos[1].title }}</li>
+            <li>{{ todos[2].title }}</li>
             <li>以下for利用</li>
-            <li v-for="todo in todos">{{ todo }}</li>
+            <li v-for="(todo, index) in todos">
+                {{ todo.title }}
+                <span @click="deleteItem(index)" class="command">[x]</span>
+            </li>
         </ul>
-        <form @submit.prevent=addItem>
+        <form @submit.prevent="addItem">
             <input type="text" v-model="newItem" />
             <input type="submit" value="Add" />
         </form>
