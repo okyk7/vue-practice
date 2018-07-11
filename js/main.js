@@ -57,6 +57,14 @@
                     return !todo.isDone;
                 });
             }
+        },
+        watch: {
+            todos: {
+                handler: function() {
+                    localStorage.setItem('todos', JSON.stringify(this.todos));
+                },
+                deep: true
+            }
         }
     });
 
