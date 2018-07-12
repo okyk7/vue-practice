@@ -11,20 +11,7 @@
         el: '#app2',
         data: {
             newItem: '',
-            todos: [
-                {
-                    'title': 'task1',
-                    'isDone': false
-                },
-                {
-                    'title': 'task2',
-                    'isDone': false
-                },
-                {
-                    'title': 'task3',
-                    'isDone': true
-                }
-            ]
+            todos: []
         },
         methods: {
             // addItem: function(e) {
@@ -57,6 +44,9 @@
                     return !todo.isDone;
                 });
             }
+        },
+        mounted: function() {
+            this.todos = JSON.parse(localStorage.getItem('todos')) || [];
         },
         watch: {
             todos: {
